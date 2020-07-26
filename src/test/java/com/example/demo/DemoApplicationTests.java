@@ -106,6 +106,12 @@ class DemoApplicationTests {
         function.apply(peopleTypeCountBO);
         functionGetAllCount.apply(peopleTypeCountBO);
         System.out.println(function.apply(peopleTypeCountBO));
+        for (int i = 0; i < ApplyTypeTestEnum.values().length; i++) {
+            System.out.println(ApplyTypeTestEnum.values()[i]);
+        }
+        for (int i = 0; i < ApplyTypeTestEnum.ALL.values().length; i++) {
+            System.out.println(ApplyTypeTestEnum.ALL.values()[i]);
+        }
 
 
 
