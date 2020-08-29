@@ -1,11 +1,13 @@
 package com.example.demo.config.application.listener;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.context.ApplicationEvent;
 
 /**
  * 新建一个自己的事件
  * @author didi
  */
+@Log4j2
 public class MyApplicationEvent extends ApplicationEvent {
     /**
      * Create a new ApplicationEvent.
@@ -34,6 +36,7 @@ public class MyApplicationEvent extends ApplicationEvent {
     public void myApplicationEvent(){
         System.out.println("********My event**************");
         System.out.println(msg);
+        log.info(msg);
         System.out.println("*******************************");
     }
 }

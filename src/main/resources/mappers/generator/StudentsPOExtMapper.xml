@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.generator.StudentsPOExtMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.generator.model.StudentsPOExt">
+<!--        主键字段与实体属性-->
+        <id column="id" jdbcType="INTEGER" property="id" />
+<!--        一般字段与实体属性-->
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="size" jdbcType="BIGINT" property="size" />
+        <result column="excellent" jdbcType="INTEGER" property="excellent" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, `name`, `size`, excellent
+    </sql>
+
+    <sql id="pageWhereSql">
+-- 前缀去掉 AND OR
+        <trim prefix="WHERE" prefixOverrides="AND | OR" suffix="" suffixOverrides="">
+            1 = 1
+            <if test="pageWhere != null and pageWhere.excellent != null">
+                AND excellent = #{pageWhere.excellent}
+            </if>
+        </trim>
+    </sql>
+
+    <select id="selectByPage" parameterType="com.example.demo.entity.generator.model.StudentsQueryBo" resultMap="BaseResultMap">
+        select
+        <if test="pageWhere.distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from students
+        <include refid="pageWhereSql"></include>
+        <if test="pageWhere != null and pageWhere.orderByClause != null and pageWhere.orderDirection != null">
+            order by ${pageWhere.orderByClause} ${pageWhere.orderDirection}
+        </if>
+        <if test="pageWhere != null and pageWhere.offset != null and pageWhere.limit != null" >
+            LIMIT #{pageWhere.offset},#{pageWhere.limit}
+        </if>
+    </select>
+
+
+
+</mapper>

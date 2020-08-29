@@ -383,6 +383,66 @@ public class StudentsPOCriteria {
             addCriterion("`size` not between", value1, value2, "size");
             return (Criteria) this;
         }
+
+        public Criteria andExcellentIsNull() {
+            addCriterion("excellent is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentIsNotNull() {
+            addCriterion("excellent is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentEqualTo(Integer value) {
+            addCriterion("excellent =", value, "excellent");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentNotEqualTo(Integer value) {
+            addCriterion("excellent <>", value, "excellent");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentGreaterThan(Integer value) {
+            addCriterion("excellent >", value, "excellent");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentGreaterThanOrEqualTo(Integer value) {
+            addCriterion("excellent >=", value, "excellent");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentLessThan(Integer value) {
+            addCriterion("excellent <", value, "excellent");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentLessThanOrEqualTo(Integer value) {
+            addCriterion("excellent <=", value, "excellent");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentIn(List<Integer> values) {
+            addCriterion("excellent in", values, "excellent");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentNotIn(List<Integer> values) {
+            addCriterion("excellent not in", values, "excellent");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentBetween(Integer value1, Integer value2) {
+            addCriterion("excellent between", value1, value2, "excellent");
+            return (Criteria) this;
+        }
+
+        public Criteria andExcellentNotBetween(Integer value1, Integer value2) {
+            addCriterion("excellent not between", value1, value2, "excellent");
+            return (Criteria) this;
+        }
     }
 
     /**

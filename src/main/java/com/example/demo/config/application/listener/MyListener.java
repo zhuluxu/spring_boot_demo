@@ -45,7 +45,7 @@ public class MyListener implements ApplicationListener<ApplicationEvent> {
      */
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
-        log.info("收到事件：" + event.toString());
+//        log.info("收到事件：" + event.toString());
 
 
         if(event instanceof ServletRequestHandledEvent){
@@ -54,6 +54,7 @@ public class MyListener implements ApplicationListener<ApplicationEvent> {
             System.out.println("#####################");
             System.out.println("一次请求发生");
             System.out.println(event.toString());
+            log.info("收到事件：" + event.toString());
             System.out.println("#####################");
         }
 
@@ -63,6 +64,7 @@ public class MyListener implements ApplicationListener<ApplicationEvent> {
             System.out.println("#####################");
             System.out.println("容器关闭");
             System.out.println(cce);
+            log.info("收到事件：" + cce.toString());
             System.out.println("#####################");
         }
         //容器刷新时候触发
@@ -71,6 +73,7 @@ public class MyListener implements ApplicationListener<ApplicationEvent> {
             System.out.println("#####################");
             System.out.println("容器刷新");
             System.out.println(cre);
+            log.info("收到事件：" + cre.toString());
             System.out.println("#####################");
         }
         //容器启动的时候触发
@@ -79,6 +82,7 @@ public class MyListener implements ApplicationListener<ApplicationEvent> {
             System.out.println("#####################");
             System.out.println("容器启动");
             System.out.println(cse);
+            log.info("收到事件：" + cse.toString());
             System.out.println("#####################");
         }
         //容器停止时候触发
@@ -87,6 +91,7 @@ public class MyListener implements ApplicationListener<ApplicationEvent> {
             System.out.println("#####################");
             System.out.println("容器停止");
             System.out.println(cse);
+            log.info("收到事件：" + cse.toString());
             System.out.println("#####################");
         }
 
