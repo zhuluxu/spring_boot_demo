@@ -3,7 +3,7 @@ package com.example.demo.model.bo;
 import lombok.Data;
 
 /**
- * @author zengjingkatherine
+ * @author zhuluxu
  */
 @Data
 public class PeopleTypeQueryBO {

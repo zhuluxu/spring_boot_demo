@@ -1,0 +1,4 @@
+org.springframework.boot.diagnostics.FailureAnalyzer=\
+  com.example.demo.failure.analyzer.IllegalArgumentFailureAnalyzer,\
+  com.example.demo.failure.analyzer.NullPointerFailureAnalyzer
+org.springframework.boot.env.EnvironmentPostProcessor=com.example.demo.config.application.listener.EnvironmentPostProcessorExample

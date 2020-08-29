@@ -1,20 +1,16 @@
 package com.example.demo;
 
 import com.example.demo.model.bo.PeopleTypeCountBO;
-import com.example.demo.model.bo.PeopleTypeQueryBO;
 import com.example.demo.study.enums.ApplyTypeTestEnum;
 import com.example.demo.util.NumericalFormat;
 import com.google.common.collect.ImmutableMap;
-import org.assertj.core.util.Maps;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.NumberUtils;
-import org.springframework.util.StringUtils;
 
-import java.text.DecimalFormat;
+import javax.annotation.Resource;
 import java.util.Map;
-import java.util.Objects;
-import java.util.function.BiConsumer;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 import java.util.function.Function;
 
 @SpringBootTest
@@ -22,6 +18,21 @@ class DemoApplicationTests {
 
 
 
+    @Resource
+    private ExecutorService commonThreadPool;
+
+    @Test
+    void testThreadPool() throws ExecutionException, InterruptedException {
+//        Future fu = null;
+//        for (int i = 0; i < 10; i++) {
+//            fu=commonThreadPool.submit(new MyTaskPoolTest("task"+i));
+//        }
+//
+//        fu.get();
+//        System.out.println(MyTaskPoolTest.count);
+        System.out.println(Math.ceil(-0.23456 * 100) * 0.01);
+
+        }
 
     @Test
     void testFunction() {

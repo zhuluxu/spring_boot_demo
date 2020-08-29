@@ -1,0 +1,71 @@
+package com.example.demo.study.thread.wait;
+
+import lombok.Data;
+
+/**
+ * @author didi
+ * 这个是快递参数对象
+ * km 里程数
+ * site 地点
+ */
+@Data
+public class Express {
+    public final static String CITY = "ShangHai";
+    /**快递运输里程数*/
+    private int km;
+    /**快递到达地点*/
+    private String site;
+
+    public Express() {
+    }
+
+    public Express(int km, String site) {
+        this.km = km;
+        this.site = site;
+    }
+
+    /** 变化公里数，然后通知处于wait状态并需要处理公里数的线程进行业务处理
+    * */
+    public synchronized void changeKm(Integer km){
+        this.km = km;
+        notifyAll();
+        //其他的业务代码
+
+    }
+
+    /** 变化地点，然后通知处于wait状态并需要处理地点的线程进行业务处理*/
+    public synchronized void changeSite(String site){
+        this.site = site;
+        notify();
+    }
+
+    public synchronized void waitKm(){
+        while(this.km<=100) {
+            try {
+                wait();
+                System.out.println("check km thread["+Thread.currentThread().getId()
+                        +"] is waiting be notifed.");
+
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        System.out.println("the km is"+this.km+",I will change db.");
+
+    }
+
+    public synchronized void waitSite(){
+        while(CITY.equals(this.site)) {
+            try {
+                wait();
+                System.out.println("check site thread["+Thread.currentThread().getId()
+                        +"] is waiting be notifed.");
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        System.out.println("the site is"+this.site+",I will call user.");
+    }
+}
