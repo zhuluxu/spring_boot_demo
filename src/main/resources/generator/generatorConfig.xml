@@ -166,6 +166,9 @@
             <generatedKey column="user_account" sqlStatement="MySql" identity="true"/>
         </table>
 
+        <table tableName="students" domainObjectName="StudentsPO">
+            <generatedKey column="name" sqlStatement="MySql" identity="true"/>
+        </table>
 
         <!-- 选择一个table来生成相关文件，可以有一个或多个table，必须要有table元素
             选择的table会生成一下文件：
