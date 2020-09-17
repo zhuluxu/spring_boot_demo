@@ -11,4 +11,8 @@ public interface RedisServiceTest {
      * @return
      */
     Integer getNumber(Integer init);
+
+    Integer getNumber2(Integer init);
+
+
 }

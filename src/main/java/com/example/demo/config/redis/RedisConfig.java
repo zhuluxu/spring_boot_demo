@@ -3,6 +3,7 @@ package com.example.demo.config.redis;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -33,6 +34,7 @@ import java.util.Set;
 @Configuration
 @EnableCaching
 @ComponentScan
+@Log4j2
 public class RedisConfig extends CachingConfigurerSupport {
 
 
@@ -125,6 +127,27 @@ public class RedisConfig extends CachingConfigurerSupport {
         return stringRedisTemplate;
     }
 
+
+    @Bean
+    public KeyGenerator testKeyGenerator() {
+        //  设置自动key的生成规则，配置spring boot的注解，进行方法级别的缓存
+        //target 类名，method 方法名  params 变量名
+        // 使用：进行分割，可以很多显示出层级关系
+        // 这里其实就是new了一个KeyGenerator对象
+        return (target, method, params) -> {
+            log.info(target+"====="+method+"===="+params);
+            StringBuilder sb = new StringBuilder();
+            sb.append(target.getClass().getName());
+            sb.append(":");
+            sb.append(method.getName());
+            for (Object obj : params) {
+                sb.append(":" + String.valueOf(obj));
+            }
+            String rsToUse = String.valueOf(sb);
+            log.info("自动生成Redis Key -> [{}]", rsToUse);
+            return rsToUse;
+        };
+    }
 
 
 

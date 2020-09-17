@@ -17,4 +17,12 @@ public class RedisServiceTestImpl implements RedisServiceTest {
 
         return init++;
     }
+
+    @Override
+    @Cacheable(value = "Number2",keyGenerator = "testKeyGenerator")
+    public Integer getNumber2(Integer init) {
+
+        return init++;
+    }
+
 }

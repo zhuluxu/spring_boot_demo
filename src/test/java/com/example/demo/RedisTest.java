@@ -41,6 +41,8 @@ public class RedisTest {
 
         Integer number3 = redisServiceTest.getNumber(4);
 
-        System.out.println(number);
+        Integer number4 = redisServiceTest.getNumber2(5);
+
+        System.out.println(number4);
     }
 }
