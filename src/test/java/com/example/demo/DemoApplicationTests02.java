@@ -5,8 +5,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * @projectName: demo
+ * @package: com.example.demo
+ * @className: DemoApplicationTests02
+ * @author: zhuluxu
+ * @description: 待添加
+ * @date: 2025/10/19 18:33
+ * @version: 0.0.1
+ */
 @SpringBootTest
-class DemoApplicationTests {
+class DemoApplicationTests02 {
 
     @Autowired
     private RedisMessageQueueService messageQueueService;
